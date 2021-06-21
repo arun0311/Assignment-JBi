@@ -1,0 +1,9 @@
+.header {
+    &__center-text {
+        display: block;
+        text-align: center;
+    }
+    &__brand-logo {
+        background-image: url("../../../assets/images/brand-logo.png");
+    }
+}
