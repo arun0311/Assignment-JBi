@@ -1,0 +1,32 @@
+<section class="text-center" *ngIf="pages.length > 1">
+    <table class="table table-striped header-fixed pagination__table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Bio</th>
+                <th scope="col">Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of items; let i = index;">
+                <ng-container *ngIf="i >= startIndex && i <= endIndex">
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.bio}}</td>
+                    <td>{{user.age}}</td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <a (click)="previous()" [disabled]="currentPage == startIndex" 
+            [ngClass]="{'pagination__no-action': currentPage == startIndex }">{{ previousLabel }}</a>
+        <span *ngFor="let page of pages">
+            <a *ngIf="page == currentPage" [ngClass]="{'pagination__active': page == currentPage }" (click)="setCurrent(page)">{{page}}</a>
+            <a *ngIf="page != currentPage" (click)="setCurrent(page)">{{page}}</a>
+        </span>
+        <a (click)="next()" [disabled]="currentPage == last"
+            [ngClass]="{'pagination__no-action': currentPage == last}">{{ nextLabel }}</a>
+    </div>
+</section>

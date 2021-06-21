@@ -1,0 +1,54 @@
+.pagination {
+    display: inline-block;
+    a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        &:hover:not(.active) {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+    }
+    &__table {
+        width: 98%;
+        left: 1%;
+        position: relative;
+    }
+    &__no-action {
+        cursor: not-allowed;
+        background-color: gray;
+        border-radius: 5px;
+    }
+    &__active {
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+    }
+}
+thead, tbody, tr, td, th { display: block; }
+
+tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+thead th {
+    height: 100%;
+}
+
+tbody {
+    height: 23rem;
+    overflow-y: auto;
+    @media only screen and (max-width: 600px) {
+        height: 28rem;
+      }
+}
+
+tbody td, thead th {
+    width: 24%;
+    float: left;
+    left: 1%;
+}
